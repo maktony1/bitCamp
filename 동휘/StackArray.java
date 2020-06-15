@@ -1,4 +1,4 @@
-
+ 
 interface IStack{
 	boolean isEmpty();
 	boolean isFull();
