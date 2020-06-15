@@ -112,8 +112,4 @@ interface IStack{
 	        arrStack.isEmpty();
 	}
 }
-//NavigableSet은 TreeSet 처럼 first(), last(), higher(), floor(), ceiling() 메서드를 제공 함
-
-//descendingIterator() : 내림차순으로 정렬된 Iterator를 리턴
-//descendingSet() : 내림차순으로 정렬된 NavigableSet 반환
 
