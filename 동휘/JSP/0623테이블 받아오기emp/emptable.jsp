@@ -24,7 +24,7 @@
 					font-size:100px;
 					text-align: center;
 					}
-		
+		 
 		</style>
 	</head>
 	<body>
