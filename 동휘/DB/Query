@@ -1,0 +1,86 @@
+select deptno, round(avg(sal)) "월급 평균", max(sal) "최대연봉", min(sal) "최소연봉" from emp where deptno='10' group by deptno;
+
+select deptno, round(avg(sal)) "월급 평균", max(sal) "최대연봉", min(sal) "최소연봉" from emp  group by deptno having deptno='10';
+
+select deptno, round(avg(sal)) "월급 평균", max(sal) "최대연봉", min(sal) "최소연봉" from emp  group by deptno having deptno='10';
+
+select deptno, round(avg(sal)) "월급 평균", max(sal) "최대연봉", min(sal) "최소연봉" from emp GROUP by deptno;
+
+select job 직책,avg(sal) 평균급여 from emp where deptno=10 GROUP by job order by avg(sal) desc;
+
+select avg(sal) 평균급여,max(sal) 최대급여, min(sal) 최소급여 from emp group by deptno HAVING avg(sal)>=3000;
+
+select job 직책,avg(sal) 평균급여,max(sal) 최대급여, min(sal) 최소급여 from emp group by job having max(sal)>=4000;
+
+select job 직책,avg(sal) 평균급여 from emp where deptno=10 group by job having max(sal)>=4000;
+
+select job 직책, avg(sal) 평균급여,max(sal) 최대급여, min(sal) 최소급여 from emp where ename like '%ER%' group by job;
+select deptno ,count(*) from emp group by deptno;
+select * from emp order by deptno asc;
+select * from emp where deptno=10;
+
+select * from emp;
+
+select sal from emp where sal>2000;
+select sum(sal) from emp group by deptno having deptno=10 and sal>4000;
+select sum(sal) from emp where sal>4000 GROUP by deptno;
+
+
+select * from emp, dept where emp.deptno=dept.deptno;
+select e.ename, d.dname from emp e, dept d where e.deptno = d.deptno;
+
+select * from emp,salgrade;
+--각 사원의 급여가 ㄷ몇 등급인지 살표보는 쿼리문
+select ENAME, SAL, GRADE from emp ,salgrade where sal between losal and hisal order by ename;
+--한명의사원이름과 소속ㅁ부서명 급여의 등급을 출력하는 ㅇ쿼리문
+select * from dept;
+select emp.deptno, ename, dname, sal, grade from emp, salgrade, dept where emp.deptno = dept.deptno and sal between losal and hisal;
+
+
+--이름이 smith인 사원의 매니저 이름
+select * from emp;
+select ename from emp where ENAME='SMITH';
+select ename from emp where empno=7902;
+select ename from emp where emp.mgr=emp.empno;
+
+select employee.ename || manager.ename from emp employee, emp manager
+where employee.mgr = manager.empno;
+
+select e.ename || '--' || e2.ename "매니저 찾기" from emp e, emp e2 where e.mgr = e2.empno;
+
+select emp.ename, dept.dname from emp, dept where emp.deptno = dept.deptno;
+
+--outer join (외부 조인)
+--조인 조건에 만족하지 못하였더라도 해당 로우를 나타내고 싶을 때 outer join을 사용한다.
+select emp.ename, dept.dname from emp, dept where emp.deptno = dept.deptno(+);
+select emp.ename, dept.dname from emp, dept where emp.deptno(+) = dept.deptno;
+-- ANSI sql 
+select ename, dname from emp left outer join dept on emp.deptno = dept.deptno;
+select ename, dname from emp right outer join dept on emp.deptno = dept.deptno;
+
+--부서별로 최대 급여를 받는 사원의 이름과 급여, 부서 이름을 출력하시오
+select ename, sal, dname from emp, dept where emp.empno=dept.empno;
+
+--1번 사원들의 이름, 부서번호, 부서이름 출력
+select emp.ename, dept.deptno, dept.dname from emp, dept where emp.deptno=dept.deptno;
+
+--2번 'DALLAS'에서 근무하는 사원의 이름, 직위, 부서번호, 부서이름 출력
+select e.ename, e.job, d.deptno, d.dname from emp e, dept d where LOC='DALLAS' and e.deptno=d.deptno; 
+select emp.ename, emp.job, dept.deptno, dept.dname from emp, dept where LOC='DALLAS' and emp.deptno=dept.deptno; 
+
+--3번 이름에 'A'가 들어가는 사람들의 이름과 부서이름 출력
+select e.ename, d.dname from emp e, dept d where e.deptno=d.deptno and ename like '%A%';
+
+--사원의 이름과 그 사원이 속한 부서의 부서명, 그리고 월급을 출력하는데 월급이 3000이상인 사원 출력
+select e.ename, d.dname, e.sal from emp e, dept d where e.deptno=d.deptno and sal>=3000;
+
+--커미션이 책정된 사원들의 사원번호, 이름, 연봉, 연봉+커미션, 급여등급을 출력하되, 각 컬럼명을 사원번호,사원이름,실급여,급여등급으로 하여 출력
+select e.empno 사원번호, e.ename 사원이름, e.sal*12 실급여, e.sal+e.comm "연봉+커미션",s.grade 급여등급 from emp e, dept d, salgrade s
+where e.deptno=d.deptno and e.sal between s.losal and s.hisal and e.comm >0;
+select e.empno 사원번호, e.ename 사원이름, e.sal*12 실급여, e.sal+e.comm "연봉+커미션",s.grade 급여등급 from emp e, salgrade s
+where e.sal between losal and hisal and e.comm >0;
+select e.empno 사원번호, e.ename 사원이름, e.sal*12 실급여, e.sal+e.comm "연봉+커미션",s.grade 급여등급 from emp e, salgrade s
+where e.sal between losal and hisal and e.comm >0;
+select * from emp;
+select * from dept;
+select * from salgrade;
