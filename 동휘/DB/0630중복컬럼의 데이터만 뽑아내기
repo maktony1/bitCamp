@@ -1,0 +1,68 @@
+drop table emp01;
+create table emp01 as select * from emp;
+select * from emp01;
+
+drop table dept02;
+create table dept02 as select * from dept;
+select * from dept01;
+
+--생성한 DEPT01 부서 테이블의 모든 데이터를 삭제
+delete from dept01;
+
+--30번 부서 삭제한 후 부서 테이블을 확인하는 쿼리
+delete from dept01 where deptno=30;
+select * from dept01;
+
+--부서명이 sales인 부서의 번호부터 알아낸 뒤 sales 부서 소속의 사원을 삭제하는 쿼리
+select e.deptno from emp e,dept d where e.deptno=d.deptno and d.dname = 'sales';
+delete from emp01 where deptno= (select deptno from dept where dname='sales');
+
+delete from dept01 where deptno=40;
+
+--현재 접속되어 있는 사용자의 계정을 확인하려면?
+show user;
+
+--emp 테이블에 같은 이름이 있는 사원의 사원번호와 이름을 출력하시오.
+select e.empno, e.ename from emp e, emp ee where e.ename=ee.ename;
+select * from emp e, emp ee where e.ename=ee.ename;
+
+--이름에 A가 들어가는 사원과 같은 직업을 가진 사원의 이름과 월급, 부서번호를 출력해라.
+select job ,ename 이름, sal 월급, deptno 부서번호 from emp where job in (select job from emp where ename like '%A%');
+select job from emp where ename like '%A%';
+
+--Dallas에서 근무하는 사원과 직업이 일치하는 사원의 이름, 부서이름, 및 급여를 출력하시오.
+select d.loc 근무지,job, e.ename 이름, d.dname 부서이름, e.sal 급여 from emp e,dept d where e.deptno=d.deptno and e.job in(select e.job 급여 from emp e,dept d where e.deptno=d.deptno and d.loc='DALLAS');
+select e.job from emp e,dept d where e.deptno=d.deptno and d.loc='DALLAS';
+
+select * from dept;
+select * from emp;
+
+CREATE table address(
+id number(3) primary key,
+name varchar2(50 char),
+addr varchar2(100 char),
+phone varchar2(30 char),
+email varchar2(100 char));
+
+select * from address;
+alter table address add(birth date);
+insert into address(id,name,addr,phone,email) values(123,'jam','asd','21342134','werq');
+insert into address(id,name,addr,phone,email) values(124,'jam','seghgfdoul','1234','sdfasw');
+insert into address(id,name,addr,phone,email) values(125,'sss','sdfg','12352','adsdfbc');
+insert into address(id,name,addr,phone,email) values(126,'sss','seoasdful','2134123','dssd');
+insert into address(id,name,addr,phone,email) values(127,'asdf','sezxcvoul','352','aasdfbc');
+insert into address(id,name,addr,phone,email) values(128,'fdsa','asdf','23412','sd');
+
+select * from address a, address aa where a.name=aa.name and name=(select name from address);
+select name from address group by name having count(name)>1;
+---------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
+-------------------------------------이름이 중복되는 값의 값만 출력하기!!!------------------------------
+select * from address where name in (select name from address group by name having count(name)>1);
+--------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
+select name from address;
+select * from address ;
+
+
+select * from user_tables;

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="EUC-KR">
+		<title>Insert title here</title>
+		<script type="text/javascript">
+		
+		
+		alert("안녕하세요 성적 확인  프로그램 입니다.");	
+		
+	
+		
+			for ( ; ; ) {
+				
+				var name = prompt("이름", "이름을 입력하세요");
+				if (name=="종료"){
+					alert("종료 되었습니다.");
+					break;
+				}
+				var kor = Number(prompt("국어.", "성적을 입력하세요."));	
+				var eng = Number(prompt("영어.", "성적을 입력하세요."));	
+				var math = Number(prompt("수학.", "성적을 입력하세요."));	
+				typeof kor;
+				var avg = ((kor+eng+math)/3);	
+				
+				
+				if (avg>=90) {
+					alert(name+"님의 성적은 평균 "+avg+" 수 입니다.");
+				}else if (avg>=80) {
+					alert(name+"님의 성적은 평균 "+avg+" 우 입니다.");
+				}else if (avg>=70) {
+					alert(name+"님의 성적은 평균 "+avg+" 미 입니다.");
+				}else if (avg>=60) {
+					alert(name+"님의 성적은 평균 "+avg+" 양 입니다.");
+				}else if (avg<60){
+					alert(name+"님의 성적은 평균 "+avg+" 가 입니다.");
+				}
+			}
+		</script>
+	</head>
+	<body>
+	
+	</body>
+</html>
