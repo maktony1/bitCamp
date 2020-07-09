@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>Javascript</title>
+		<script>
+		
+			/*
+				getter, setter 함수
+			*/			
+			
+			function BMICalculator (height, weight){
+				this.height = height;
+				this.weight = weight;
+				this.bmi = function(){
+					return (this.weight / (this.height * this.height)).toFixed(2);
+					//Number.prototype.toFixed();
+				};
+			}
+			
+			var myBMI = new BMICalculator(1.9, 90);
+			console.log("myBMI.bmi : " + myBMI.bmi());
+			
+			</script>
+	
+	</head>
+	
+	<body>
+	</body>
+
+</html>
