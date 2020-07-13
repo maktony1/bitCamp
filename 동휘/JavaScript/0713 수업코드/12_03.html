@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>Javascript</title>
+		<script>
+		
+			/*
+				Date객체
+			*/
+			var objDate1 = new Date();	//시스템 날짜를 이용한 객체생성
+			var objDate2 = new Date(2010, 10, 10);					//2010년 11월 10일
+			var objDate3 = new Date(2010, 10, 10, 10, 10, 10, 100);	//2010년 11월 10일 10시 10분 10초 100분
+
+			
+			console.log(objDate1);
+			console.log(objDate2);
+			console.log(objDate3);
+			
+			//getYear() / setYear()
+			//1900년도 기준(1900 + objDate1.getYear())
+			console.log("objDate1.getYear : " + objDate1.getYear());	
+			console.log("objDate1.getYear : " + (objDate1.getYear() + 1900));
+			
+			//권장 메서드 : getFullYear() / setFullyear() 
+			console.log("objDate1.getFullYear : " + objDate1.getFullYear());
+			
+			//getMonth()/setMonth() 
+			console.log("objDate1.getMonth : " + objDate1.getMonth());
+
+			//getDate() / setDate()
+			console.log("objDate1.getDate : " + objDate1.getDate());
+			
+			//getDay() / setDay()
+			console.log("objDate1.getDay : " + objDate1.getDay());
+			
+			//getHours() / setHours()
+			console.log("objDate1.getHours : " + objDate1.getHours());
+			
+			//getMinutes() / setMinutes()
+			console.log("objDate1.getMinutes : " + objDate1.getMinutes());
+			
+			//getSeconds() / setSeconds()
+			console.log("objDate1.getSeconds : " + objDate1.getSeconds());
+			
+			//getTime() / setTime()
+			//기준시(1970년1월1일00:00:00)를 기준으로 경과된 시간을 milisecond 로 표시/설정
+			console.log("objDate1.getTime : " + objDate1.getTime());
+			
+			//toString()
+			//날짜와 시간을 문자열로 변환
+			console.log("objDate1.toString : " + objDate1.toString());
+			
+			//toLocaleString()
+			//날짜와 시간을 지역시간 문자열로 변환
+			console.log("objDate1.toLocaleString : " + objDate1.toLocaleString());
+			
+			//toGMTString()
+			//날짜와 시간을 GMT 문자열로 변환
+			console.log("objDate1.toGMTString : " + objDate1.toGMTString());
+			
+			
+			//오늘의 날짜
+			function getNowDate() {
+				var nowDate = new Date();
+				var dayArr = new Array('일', '월', '화', '수', '목', '금', '토');
+				var print = ""; 
+					print += nowDate.getFullYear() + "년 ";
+					print += (nowDate.getMonth() + 1) + "월 ";
+					print += nowDate.getDate() + "일 ";
+					print += dayArr[nowDate.getDay()]+ "요일 ";
+					print += nowDate.getHours()+ "시 ";
+					print += nowDate.getMinutes()+ "분 ";
+					print += nowDate.getSeconds()+ "초 ";
+				
+				return print;
+			}
+			
+			var nowIntervalId = setInterval(function(){
+				console.log(getNowDate());
+			}, 1000);
+			
+			var nowTimeout = setTimeout(function(){
+				clearInterval(nowIntervalId);
+				console.log("종료!");
+			}, 5000);
+			
+			</script>
+	
+	</head>
+	
+	<body>
+	</body>
+
+</html>

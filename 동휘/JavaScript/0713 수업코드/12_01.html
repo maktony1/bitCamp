@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>Javascript</title>
+		<script>
+		
+			/*
+				String객체
+			*/
+			
+			var strEn = "ABCDEFE";
+			var strKo = new String("가나다라마바사아");
+			String.prototype.temp = 123;
+			
+			console.log("strEn : " + strEn);
+			console.log("strKo : " + strKo);
+			
+			console.log("strEn.length : " + strEn.length);
+			console.log("strKo.length : " + strKo.length);
+			
+			console.log("strEn.constructor : " + strEn.constructor);
+			console.log("strKo.constructor : " + strKo.constructor);
+			
+			console.log("strEn.temp : " + strEn.temp);
+			console.log("strKo.temp : " + strKo.temp);
+			
+			console.log("charAt() : " + strEn.charAt(3));
+			console.log("indexOf() : " + strEn.indexOf("E"));
+			console.log("lastIndexOf() : " + strEn.lastIndexOf("E"));
+			console.log("concat() : " + strEn.concat("abcedf"));
+			console.log("replace() : " + strEn.replace("A", "a"));
+			console.log("split() : " + strEn.split("C"));
+			console.log("slice() : " + strEn.slice(2, 4));
+			console.log("substring() : " + strEn.substring(1, 4));
+			
+			var lc = strEn.toLowerCase();
+			console.log("lc : " + lc);
+			var up = lc.toUpperCase();
+			console.log("up : " + up);
+			
+			//Object객체
+			function ObjName() {
+				this.pro = "property";
+				this.met = function met(){};
+			};
+			
+			ObjName.prototype.temp = 123;
+			
+			var obj = new ObjName();
+			console.log("obj.constructor : " + obj.constructor);
+			console.log("obj.temp : " + obj.temp);
+			
+			</script>
+	
+	</head>
+	
+	<body>
+	</body>
+
+</html>
