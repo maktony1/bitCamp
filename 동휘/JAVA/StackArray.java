@@ -10,7 +10,7 @@ interface IStack{
 
 	public class StackArray implements IStack{
 		private int top;
-		private int stackSize;
+		private int stackSize; 
 		private char[] stackArr;
 		
 		public StackArray(int stackSize) {
