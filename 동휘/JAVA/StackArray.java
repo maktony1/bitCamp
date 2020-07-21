@@ -14,11 +14,11 @@ interface IStack{
 		private char[] stackArr;
 		
 		public StackArray(int stackSize) {
-			top = -1; //½ºÅÃ Æ÷ÀÎÅÍ ÃÊ±âÈ­
+			top = -1; //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­
 			this.stackSize =  stackSize;
 			stackArr = new char[this.stackSize];
 		}
-		
+		 
 		@Override
 		public boolean isEmpty() {
 			return (top==-1);
@@ -47,7 +47,7 @@ interface IStack{
 	        }                
 	    }
 	    
-	    // ½ºÅÃÀÇ ÃÖ»óÀ§(¸¶Áö¸·) µ¥ÀÌÅÍ ÃßÃâ
+	    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö»ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½) ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	    public int peek() {
 	        if(isEmpty()) {
 	            System.out.println("Peeking fail! Stack is empty!");
@@ -58,13 +58,13 @@ interface IStack{
 	        }
 	    }
 	    
-	    // ½ºÅÃ ÃÊ±âÈ­
+	    // ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­
 	    public void clear() {
 	        if(isEmpty()) {
 	            System.out.println("Stack is already empty!");
 	        } else {
-	            top = -1;    // ½ºÅÃ Æ÷ÀÎÅÍ ÃÊ±âÈ­
-	            stackArr = new char[this.stackSize];    // »õ·Î¿î ½ºÅÃ ¹è¿­ »ý¼º
+	            top = -1;    // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­
+	            stackArr = new char[this.stackSize];    // ï¿½ï¿½ï¿½Î¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½è¿­ ï¿½ï¿½ï¿½ï¿½
 	            System.out.println("Stack is clear!");
 	        }
 	    }
